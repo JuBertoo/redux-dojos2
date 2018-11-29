@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import Friend from './Friend';
 import "./Friend.css"
+import { connect } from 'react-redux'
 
-export default class Friends extends Component {
+export class Friends extends Component {
   render() {
+    console.log("Props from Friends.jsx", this.props)
     const {friendsList} = this.props;
     return (
       <div className="friendsContainer">
@@ -12,7 +14,7 @@ export default class Friends extends Component {
           friendsList.length > 0 &&
           friendsList.map((friend) => {
             return(
-              <Friend key={`friend_${friend.id}`} friend={friend} removeFriendFromList={(friend) => this.props.removeFriendFromList(friend)}/>
+              <Friend key={`friend_${friend.id}`} friend={friend}/>
             )
           })
         }
@@ -20,3 +22,14 @@ export default class Friends extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  ...state
+})
+
+const mapDispatchToProps = {
+  
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Friends)
+
