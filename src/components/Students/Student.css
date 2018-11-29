@@ -1,0 +1,12 @@
+.studentsContainer {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.studentCard {
+  margin: 10px 0px;
+  padding: 10px;
+  width: 200px;
+  border: 1px solid black;
+}
